@@ -1,0 +1,5 @@
+win
+no
+oh
+hello
+lose

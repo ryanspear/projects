@@ -1,0 +1,55 @@
+public class LtoR{
+  
+  private static boolean found = false;
+  public static void main(String [] args){
+    int[] a = {3,3,4};
+    int target = 10;
+    int sum = 0;
+    int max = 1;
+    for(int i = 0; i < a.length; i++){
+      sum += a[i];
+      max *= a[i];
+      
+    }
+    String printer = "";
+    findCombo(a, target, 0, sum, max, 0, printer);
+    
+    
+  }
+  
+  public static void setFound(boolean sfound){
+    found = sfound;
+  }
+  
+  public static boolean getFound(){
+    return found;
+  }
+  
+  
+  public static void findCombo(int[] a, int value, int remainder, int sum, int max, int i, String printer){
+    i++;
+    
+    
+    if(i == a.length+1 || value < sum || getFound()){
+      return;
+    }
+    if(value == sum && remainder == 0){
+      int j = i;
+      while(j < a.length+1){
+      printer = (" + " + a[a.length-j] + printer);
+      j++;
+      }
+      printer = printer.substring(3);
+      printer = "L " + printer;
+      System.out.println(printer);
+      setFound(true);
+    }
+
+    if(value < max){
+      remainder %= a[a.length-i];
+      findCombo(a, value/a[a.length-i], value%a[a.length-i], sum-a[a.length -i], max/a[a.length-i], i, " x " + a[a.length-i] + printer);
+      //System.out.println("Bout to call the - call with i = " + i);
+      findCombo(a, value-a[a.length-i], 0, sum-a[a.length-i], max-a[a.length-i], i, " + " + a[a.length-i] + printer);
+    }
+  }
+}

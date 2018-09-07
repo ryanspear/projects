@@ -1,0 +1,46 @@
+package arithmetic;
+
+import java.util.*;
+import java.lang.*;
+
+public class Arithmetic{
+  
+  public static void main(String [] args){
+
+      ArrayList<Integer> values = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
+    while(scanner.hasNextLine()){
+      
+    String numbers = scanner.nextLine();
+    Scanner stringRead = new Scanner(numbers);
+    while(stringRead.hasNext()){
+        values.add(stringRead.nextInt());
+    }    
+    String line2 = scanner.nextLine();
+    stringRead = new Scanner(line2);
+    int target = stringRead.nextInt();
+    String stringType = stringRead.next();
+    char type = stringType.charAt(0);
+    String printer = "";
+    
+    //System.out.println("The max value is: " + LtoR.maxValue(max));
+    
+    //System.out.println(LtoR.recursiveProduct(2, 1, 4, 9));
+    for(int i = 0; i < values.size(); i++){
+        System.out.println(values.get(i));
+    }
+    
+    System.out.println("Target: " + target);
+    System.out.println("Type: " + type);
+    System.out.println("Max: " + LtoR.maxValue(values));
+    int limit = (int) (Math.pow(2, values.size() -1)+2);
+    LtoR.recursiveProduct(0, values, target, 0, printer, limit);
+    
+    }
+  }
+    
+    
+  }
+  
+  
+  //}

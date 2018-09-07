@@ -1,0 +1,65 @@
+
+
+public class Harmonic{
+
+    public static void main(String [] args){
+        float x = 12;
+        System.out.println("n: " + x);
+        System.out.println("Float in order:  \t" + floatCompute(x));
+        System.out.println("Float in reverse:\t" + floatComputeReverse(x));
+        System.out.println("Double in order:\t" + doubleCompute(x));
+        System.out.println("Double in reverse:\t" + doubleComputeReverse(x));
+
+        float add = (1/x);
+        System.out.println(floatCompute(x-1) + ", + " + add);
+        System.out.println(floatCompute(x-1) + add);
+        
+    }
+
+    public static float floatCompute(float n){
+        float i = 1;
+        float output = 0;
+        while(i <= n){
+            output += (1/i);
+            i++;
+        }
+
+        return output;
+
+
+    }
+
+    public static float floatComputeReverse(float n){
+        float i = 0;
+        float output = 0;
+        while(i < n){
+            output += 1/(n-i);
+            i++;
+        }
+
+        return output;
+    }
+
+
+    public static double doubleCompute(double n){
+        double i = 1;
+        float output = 0;
+        while(i <= n){
+            output += (1/i);
+            i++;
+        }
+
+        return output;
+    }
+
+    public static double doubleComputeReverse(double n){
+        double i = 0;
+        float output = 0;
+        while(i < n){
+            output += 1/(n-i);
+            i++;
+        }
+
+        return output;
+    }
+}

@@ -1,0 +1,18 @@
+public class Rule{
+    String unallowed;
+    ArrayList<String> exceptions;
+    
+    public Rule(String unallowed, ArrayList<String> exceptions){
+        this.unallowed = unallowed;
+        this exceptions = expections;
+    }
+
+    public String getRule(){
+        return unallowed;
+    }
+
+    public ArrayList<String> getExceptions(){
+        return exceptions;
+    }
+
+}

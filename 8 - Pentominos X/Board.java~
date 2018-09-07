@@ -1,0 +1,137 @@
+import java.util.*;
+import java.awt.Point;
+
+public class Board{
+
+    public static char[][] board; // our board represented by a 2d array of characters
+    public static ArrayList<Pent> pents = new ArrayList<Pent>();
+
+
+    public static void fillBoard(ArrayList<char[]> b){
+        board = new char[b.size()][b.get(0).length];
+        int i = 0;
+        for(char[] shape: b){ // might work?
+            board[i] = shape;
+            i++;
+        }
+
+        //printBoard();
+        //System.out.println("\n");
+
+        /**  Pent omino = pents.get(0);
+        for(int u = 0; u < omino.shape[0].length; u++){
+            Point here = omino.shape[0][u];
+            board[(int) here.getX() + 3][(int) here.getY() + 2] = 'O';
+        }
+
+        //printBoard();
+        **/
+        for(int x = 0; x < board.length; x++){
+            for(int y = 0; y < board[i].length; y++){
+          
+                if(!insert(pents.get(z)), x, y)
+                    continue;
+                if(impossibleArea()){
+                    remove(p,row,col);
+                    continue;
+                }
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static boolean insert(Point[] form, int x, int y){
+        // insert the pentomino into the board at the given anchor point
+        // go along rows filling all '.' spots.
+        // this would be called recursively?
+    }
+
+    public static void remove(Pent w){
+        // remove this Pentomino object which has already been placed
+        // on the board. Maybe it needs rotating or is the wrong type
+    }
+
+    public static ArrayList<Point> getNoZone(){
+        // goes through the board and identifies asterix positions
+        // can be used to fit pentominos around them
+        ArrayList<Point> points = new ArrayList<Point>();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == '*') {
+                    Point asterisk = new Point(j, i);
+                    points.add(asterisk);
+                }
+            }
+        }
+        return points;
+    }
+
+    public static boolean isComplete(){
+        // if no spare spaces are left return true
+        // else return false
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] == '.') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void printBoard(){
+        // prints a visual representation of the current
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[i].length; j++) {
+                System.out.print(board[i][j]);
+            }
+            System.out.println("");
+        }
+    }
+
+public static boolean testPlacement(Point[] form, int x, int y){
+        //for each point in Pent
+        
+        return false;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<char[]> b = new ArrayList<char[]>();
+        Scanner fileScanner = new Scanner(System.in);
+        while (fileScanner.hasNextLine()) {
+            String line = fileScanner.nextLine();
+            if (line.startsWith(".") || line.startsWith("*")) {
+                char[] boardLine = new char[line.length()];
+                for (int i = 0; i < line.length(); i++) {
+                    boardLine[i] = line.charAt(i);
+                }
+                b.add(boardLine);
+            } else if(line.isEmpty()) {
+                //perform necessary operations to complete puzzle
+                //or determine puzzle to have no solution
+                fillBoard(b);
+                //printBoard();
+                if (isComplete()) {
+                    printBoard();
+                } else {
+                    System.out.println("No solution");
+                }
+                pents.clear();
+                b.clear();
+            } else {
+                for (int i = 0; i < line.length(); i++) {
+                    pents.add(Pent.charToPent(line.charAt(i)));
+                }
+            }
+        }
+        fillBoard(b);
+        //printBoard();
+        if (isComplete()) {
+            printBoard();
+        } else {
+            System.out.println("No solution");
+        }
+    }
+}

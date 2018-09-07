@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class secondTry{
+
+
+    public static void main(String [] args){
+
+
+
+        
+
+    }
+
+
+    public static int findOp(ArrayString<Integer> numbers, int target, int i){
+        int tempTarget = target;
+        if(target == 0){
+            return 1;
+        } else {
+            if(taget < 0){
+                return;
+            }
+        }
+        target /= numbers.size() - i;
+        findOp(numbers, target, i++);
+        findOp(numbers, target, i++);
+
+        return 0;
+    }
+        
+}
